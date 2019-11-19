@@ -1,0 +1,21 @@
+{
+  "FORM": "private license",
+  "VERSION": "7.0.0",
+  "date": "2019-11-12T16:39:58.824Z",
+  "licensee": {
+    "email": "kyle@kemitchell.com",
+    "jurisdiction": "US-CA",
+    "name": "Kyle E. Mitchell"
+  },
+  "licensor": {
+    "jurisdiction": "PL-MZ",
+    "name": "Rafał Michalski"
+  },
+  "orderID": "760efaae-e8bb-4878-bd8c-00ed71269153",
+  "price": 500,
+  "project": {
+    "description": "A powerfull Z80 Cpu macro assembler DSL and a build automation tool written in Ruby, a ZX Spectrum Basic parser and more.",
+    "homepage": "https://royaltm.github.io/z80-rb/",
+    "projectID": "45cbaa2c-6a54-4ca8-9559-19e7eaaef7ee"
+  }
+}

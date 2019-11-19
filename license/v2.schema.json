@@ -1,0 +1,147 @@
+{
+  "description": "License Zero Private License",
+  "type": "object",
+  "required": [
+    "schema",
+    "metadata",
+    "document",
+    "publicKey",
+    "signature"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "form",
+        "version",
+        "date",
+        "licensee",
+        "licensor",
+        "orderID",
+        "price",
+        "offer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "description": "Private License Form URI",
+          "type": "string",
+          "const": "private license"
+        },
+        "version": {
+          "description": "Private License Form Version",
+          "type": "string",
+          "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
+        },
+        "date": {
+          "description": "Private License Effective Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "licensee": {
+          "description": "Licensee Identification",
+          "type": "object",
+          "required": [
+            "name",
+            "jurisdiction",
+            "email"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Licensee's Name",
+              "type": "string",
+              "minLength": 4
+            },
+            "jurisdiction": {
+              "description": "Licensee's Jurisdiction",
+              "type": "string",
+              "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+            },
+            "email": {
+              "description": "Licensee's E-Mail Address",
+              "type": "string",
+              "format": "email"
+            }
+          }
+        },
+        "licensor": {
+          "type": "object",
+          "required": [
+            "name",
+            "jurisdiction"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Licensor's Name",
+              "type": "string",
+              "minLength": 4
+            },
+            "jurisdiction": {
+              "description": "Licensor's Jurisdiction",
+              "type": "string",
+              "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+            }
+          }
+        },
+        "orderID": {
+          "description": "Private License Order ID",
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "price": {
+          "description": "Private License Price in United States cents",
+          "type": "integer",
+          "min": 1
+        },
+        "offer": {
+          "description": "Offer Identification",
+          "type": "object",
+          "required": [
+            "offerID",
+            "url",
+            "description"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "offerID": {
+              "description": "Offer ID",
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "url": {
+              "description": "Project URL",
+              "type": "string",
+              "format": "uri",
+              "pattern": "^(https|http)://"
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "document": {
+      "description": "License Text",
+      "type": "string",
+      "minLength": 1
+    },
+    "publicKey": {
+      "description": "Licensor's Ed25519 Public Key",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "signature": {
+      "description": "Licensor's Ed25519 Signature",
+      "type": "string",
+      "pattern": "^[0-9a-f]{128}$"
+    }
+  }
+}
