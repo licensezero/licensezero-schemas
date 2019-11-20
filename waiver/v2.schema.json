@@ -1,0 +1,154 @@
+{
+  "description": "License Zero Waiver",
+  "type": "object",
+  "required": [
+    "schema",
+    "metadata",
+    "document",
+    "agentSignature",
+    "licensorSignature"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "https://schemas.licensezero.com/waiver/2.0.0.json"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "form",
+        "version",
+        "date",
+        "term",
+        "beneficiary",
+        "licensor",
+        "offerID",
+        "url",
+        "description"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "description": "Private License Form URL",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https|http)://"
+        },
+        "version": {
+          "description": "Private License Form Version",
+          "type": "string",
+          "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
+        },
+        "date": {
+          "description": "Private License Effective Date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "term": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "forever"
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ]
+        },
+        "beneficiary": {
+          "description": "Beneficiary Identification",
+          "type": "object",
+          "required": [
+            "name",
+            "jurisdiction",
+            "email"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Beneficiary's Name",
+              "$ref": "#/definitions/name"
+            },
+            "jurisdiction": {
+              "description": "Beneficiary's Jurisdiction",
+              "$ref": "#/definitions/jurisdiction"
+            },
+            "email": {
+              "description": "Beneficiary's E-Mail Address",
+              "type": "string",
+              "format": "email"
+            }
+          }
+        },
+        "licensor": {
+          "type": "object",
+          "required": [
+            "name",
+            "jurisdiction"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "description": "Licensor's Name",
+              "$ref": "#/definitions/name"
+            },
+            "jurisdiction": {
+              "description": "Licensor's Jurisdiction",
+              "$ref": "#/definitions/jurisdiction"
+            }
+          }
+        },
+        "offerID": {
+          "description": "Offer ID",
+          "$ref": "#/definitions/uuid"
+        },
+        "url": {
+          "description": "Project URL",
+          "$ref": "#/definitions/url"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "document": {
+      "description": "License Text",
+      "type": "string",
+      "minLength": 1
+    },
+    "agentSignature": {
+      "description": "Agent's Ed25519 Signature",
+      "$ref": "#/definitions/signature"
+    },
+    "licensorSignature": {
+      "description": "Licensor's Ed25519 Signature",
+      "$ref": "#/definitions/signature"
+    }
+  },
+  "definitions": {
+    "jurisdiction": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 4
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{128}$"
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^(https|http)://"
+    }
+  }
+}
