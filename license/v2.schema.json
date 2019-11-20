@@ -28,9 +28,10 @@
       "additionalProperties": false,
       "properties": {
         "form": {
-          "description": "Private License Form URI",
+          "description": "Private License Form URL",
           "type": "string",
-          "const": "private license"
+          "format": "uri",
+          "pattern": "^(https|http)://"
         },
         "version": {
           "description": "Private License Form Version",
