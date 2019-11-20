@@ -5,13 +5,14 @@
     "schema",
     "metadata",
     "document",
-    "publicKey",
-    "signature"
+    "agentSignature",
+    "licensorSignature"
   ],
+  "additionalProperties": false,
   "properties": {
     "schema": {
       "type": "string",
-      "const": "2.0.0"
+      "const": "https://schemas.licensezero.com/license/2.0.0.json"
     },
     "metadata": {
       "type": "object",
@@ -21,9 +22,11 @@
         "date",
         "licensee",
         "licensor",
-        "orderID",
+        "offerID",
+        "url",
+        "description",
         "price",
-        "offer"
+        "orderID"
       ],
       "additionalProperties": false,
       "properties": {
@@ -55,13 +58,11 @@
           "properties": {
             "name": {
               "description": "Licensee's Name",
-              "type": "string",
-              "minLength": 4
+              "$ref": "#/definitions/name"
             },
             "jurisdiction": {
               "description": "Licensee's Jurisdiction",
-              "type": "string",
-              "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+              "$ref": "#/definitions/jurisdiction"
             },
             "email": {
               "description": "Licensee's E-Mail Address",
@@ -80,52 +81,34 @@
           "properties": {
             "name": {
               "description": "Licensor's Name",
-              "type": "string",
-              "minLength": 4
+              "$ref": "#/definitions/name"
             },
             "jurisdiction": {
               "description": "Licensor's Jurisdiction",
-              "type": "string",
-              "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+              "$ref": "#/definitions/jurisdiction"
             }
           }
         },
-        "orderID": {
-          "description": "Private License Order ID",
+        "offerID": {
+          "description": "Offer ID",
+          "$ref": "#/definitions/uuid"
+        },
+        "url": {
+          "description": "Project URL",
+          "$ref": "#/definitions/url"
+        },
+        "description": {
           "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          "minLength": 1
         },
         "price": {
           "description": "Private License Price in United States cents",
           "type": "integer",
           "min": 1
         },
-        "offer": {
-          "description": "Offer Identification",
-          "type": "object",
-          "required": [
-            "offerID",
-            "url",
-            "description"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "offerID": {
-              "description": "Offer ID",
-              "type": "string",
-              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-            },
-            "url": {
-              "description": "Project URL",
-              "type": "string",
-              "format": "uri",
-              "pattern": "^(https|http)://"
-            },
-            "description": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
+        "orderID": {
+          "description": "Private License Order ID",
+          "$ref": "#/definitions/uuid"
         }
       }
     },
@@ -134,15 +117,36 @@
       "type": "string",
       "minLength": 1
     },
-    "publicKey": {
-      "description": "Licensor's Ed25519 Public Key",
+    "agentSignature": {
+      "description": "Agent's Ed25519 Signature",
+      "$ref": "#/definitions/signature"
+    },
+    "licensorSignature": {
+      "description": "Licensor's Ed25519 Signature",
+      "$ref": "#/definitions/signature"
+    }
+  },
+  "definitions": {
+    "jurisdiction": {
       "type": "string",
-      "pattern": "^[0-9a-f]{64}$"
+      "pattern": "^[A-Z][A-Z]-[A-Z0-9]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 4
     },
     "signature": {
-      "description": "Licensor's Ed25519 Signature",
       "type": "string",
       "pattern": "^[0-9a-f]{128}$"
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^(https|http)://"
     }
   }
 }
