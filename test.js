@@ -30,4 +30,20 @@ tape('examples', function (suite) {
       test.end()
     })
   })
+
+  glob.sync('**/*.invalid.json').forEach(function (file) {
+    suite.test(file, function (test) {
+      var dirname = path.dirname(file)
+      var basename = path.basename(file, '.example.json')
+      var split = basename.split('-')
+      var schemaFile = path.join(dirname, split[0] + '.schema.json')
+      var schema = require(path.resolve(schemaFile))
+      var data = require(path.resolve(file))
+      test.doesNotThrow(function () {
+        ajv.validate(schema, data)
+      }, 'no exception')
+      test.notDeepEqual(ajv.errors, null, 'validation errors')
+      test.end()
+    })
+  })
 })
