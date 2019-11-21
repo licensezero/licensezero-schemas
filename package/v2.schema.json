@@ -3,14 +3,14 @@
   "type": "object",
   "required": [
     "schema",
-    "offers"
+    "contributions"
   ],
   "properties": {
     "schema": {
       "type": "string",
       "const": "https://schemas.licensezero.com/package/2.0.0.json"
     },
-    "offers": {
+    "contributions": {
       "type": "array",
       "items": {
         "type": "object",
