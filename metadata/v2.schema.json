@@ -21,12 +21,13 @@
         "properties": {
           "licensorID": {
             "description": "Licensor ID",
-            "comment": "included so clients can determine whether the person auditing licenses is the licensor",
+            "comment": "enables clients to determine whether the person auditing licenses is the licensor",
             "type": "string",
             "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
           },
           "offerID": {
             "description": "Offer ID",
+            "comment": "enables clients to order private licenses",
             "type": "string",
             "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
           },
