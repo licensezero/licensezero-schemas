@@ -8,7 +8,7 @@
   "properties": {
     "schema": {
       "type": "string",
-      "const": "2.0.0"
+      "const": "https://schemas.licensezero.com/metadata/2.0.0.json"
     },
     "offers": {
       "type": "array",
