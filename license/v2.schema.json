@@ -17,7 +17,6 @@
       "type": "object",
       "required": [
         "form",
-        "version",
         "date",
         "licensee",
         "licensor",
@@ -34,11 +33,6 @@
           "type": "string",
           "format": "uri",
           "pattern": "^(https|http)://"
-        },
-        "version": {
-          "description": "Private License Form Version",
-          "type": "string",
-          "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
         },
         "date": {
           "description": "Private License Effective Date",
