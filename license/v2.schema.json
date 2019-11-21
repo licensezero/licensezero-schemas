@@ -5,8 +5,7 @@
     "schema",
     "metadata",
     "document",
-    "agentSignature",
-    "licensorSignature"
+    "signature"
   ],
   "additionalProperties": false,
   "properties": {
@@ -117,13 +116,10 @@
       "type": "string",
       "minLength": 1
     },
-    "agentSignature": {
+    "signature": {
       "description": "Agent's Ed25519 Signature",
-      "$ref": "#/definitions/signature"
-    },
-    "licensorSignature": {
-      "description": "Licensor's Ed25519 Signature",
-      "$ref": "#/definitions/signature"
+      "type": "string",
+      "pattern": "^[0-9a-f]{128}$"
     }
   },
   "definitions": {
@@ -134,10 +130,6 @@
     "name": {
       "type": "string",
       "minLength": 4
-    },
-    "signature": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{128}$"
     },
     "uuid": {
       "type": "string",
