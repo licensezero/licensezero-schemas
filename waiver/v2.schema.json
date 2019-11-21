@@ -21,7 +21,7 @@
         "term",
         "beneficiary",
         "licensor",
-        "offerID",
+        "contributionID",
         "url",
         "description"
       ],
@@ -98,8 +98,8 @@
             }
           }
         },
-        "offerID": {
-          "description": "Offer ID",
+        "contributionID": {
+          "description": "Contribution ID",
           "$ref": "#/definitions/uuid"
         },
         "url": {

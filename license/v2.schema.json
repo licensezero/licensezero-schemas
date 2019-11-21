@@ -20,7 +20,7 @@
         "date",
         "licensee",
         "licensor",
-        "offerID",
+        "contributionID",
         "url",
         "description",
         "price",
@@ -87,8 +87,8 @@
             }
           }
         },
-        "offerID": {
-          "description": "Offer ID",
+        "contributionID": {
+          "description": "Contribution ID",
           "$ref": "#/definitions/uuid"
         },
         "url": {
