@@ -5,8 +5,7 @@
     "schema",
     "metadata",
     "document",
-    "agentSignature",
-    "licensorSignature"
+    "signature"
   ],
   "additionalProperties": false,
   "properties": {
@@ -18,7 +17,6 @@
       "type": "object",
       "required": [
         "form",
-        "version",
         "date",
         "term",
         "beneficiary",
@@ -30,18 +28,13 @@
       "additionalProperties": false,
       "properties": {
         "form": {
-          "description": "Private License Form URL",
+          "description": "Waiver Form URL",
           "type": "string",
           "format": "uri",
           "pattern": "^(https|http)://"
         },
-        "version": {
-          "description": "Private License Form Version",
-          "type": "string",
-          "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
-        },
         "date": {
-          "description": "Private License Effective Date",
+          "description": "Waiver Effective Date",
           "type": "string",
           "format": "date-time"
         },
@@ -86,7 +79,8 @@
           "type": "object",
           "required": [
             "name",
-            "jurisdiction"
+            "jurisdiction",
+            "licensorID"
           ],
           "additionalProperties": false,
           "properties": {
@@ -97,6 +91,10 @@
             "jurisdiction": {
               "description": "Licensor's Jurisdiction",
               "$ref": "#/definitions/jurisdiction"
+            },
+            "licensorID": {
+              "description": "Licensor ID",
+              "$ref": "#/definitions/uuid"
             }
           }
         },
@@ -119,13 +117,10 @@
       "type": "string",
       "minLength": 1
     },
-    "agentSignature": {
+    "signature": {
       "description": "Agent's Ed25519 Signature",
-      "$ref": "#/definitions/signature"
-    },
-    "licensorSignature": {
-      "description": "Licensor's Ed25519 Signature",
-      "$ref": "#/definitions/signature"
+      "type": "string",
+      "pattern": "^[0-9a-f]{128}$"
     }
   },
   "definitions": {
@@ -136,10 +131,6 @@
     "name": {
       "type": "string",
       "minLength": 4
-    },
-    "signature": {
-      "type": "string",
-      "pattern": "^[0-9a-f]{128}$"
     },
     "uuid": {
       "type": "string",
