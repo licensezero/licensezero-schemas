@@ -1,4 +1,4 @@
-# Metadata Schema
+# Package Metadata Schema
 
 License Zero adds metadata to software packages so that users can identify all License Zero packages within their projects using `licensezero` command-line interface.
 

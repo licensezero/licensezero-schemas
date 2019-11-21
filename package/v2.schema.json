@@ -1,5 +1,5 @@
 {
-  "description": "License Zero Metadata",
+  "description": "License Zero Package Metadata",
   "type": "object",
   "required": [
     "schema",
@@ -8,7 +8,7 @@
   "properties": {
     "schema": {
       "type": "string",
-      "const": "https://schemas.licensezero.com/metadata/2.0.0.json"
+      "const": "https://schemas.licensezero.com/package/2.0.0.json"
     },
     "offers": {
       "type": "array",

@@ -1,5 +1,5 @@
 {
-  "schema": "https://schemas.licensezero.com/metadata/2.0.0.json",
+  "schema": "https://schemas.licensezero.com/package/2.0.0.json",
   "offers": [
     {
       "licensorID": "012e8623-8a2b-44a9-a5f2-e48016533b6f",
