@@ -18,7 +18,6 @@
           "licensorID",
           "offerID",
           "terms",
-          "version",
           "signature"
         ],
         "additionalProperties": false,
@@ -37,9 +36,15 @@
           },
           "terms": {
             "description": "Public License Terms",
-            "enum": [
-              "parity",
-              "prosperity"
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^https://paritylicense.com/versions/[0-9]+\\.[0-9]+\\.[0-9]+"
+              },
+              {
+                "type": "string",
+                "pattern": "^https://prosperitylicense.com/versions/[0-9]+\\.[0-9]+\\.[0-9]+"
+              }
             ]
           },
           "version": {
