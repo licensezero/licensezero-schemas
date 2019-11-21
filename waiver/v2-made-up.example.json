@@ -1,0 +1,23 @@
+{
+  "schema": "https://schemas.licensezero.com/waiver/2.0.0.json",
+  "metadata": {
+    "form": "https://forms.licensezero.com/licenses/waiver/3.0.0",
+    "date": "2019-11-20T04:10:04.31Z",
+    "beneficiary": {
+      "name": "Example Beneficiary",
+      "jurisdiction": "UC-CA",
+      "email": "beneficiary@example.com"
+    },
+    "licensor": {
+      "name": "Example Licensor",
+      "jurisdiction": "UC-CA",
+      "licensorID": "04a7feca-dae5-4456-949d-2fd242e78574"
+    },
+    "offerID": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
+    "url": "http://example.com",
+    "description": "example project",
+    "term": "forever"
+  },
+  "document": "...",
+  "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}
