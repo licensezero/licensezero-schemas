@@ -13,52 +13,43 @@
     "offers": {
       "type": "array",
       "items": {
-        "description": "License Zero Metadata Record",
         "type": "object",
         "required": [
-          "signature",
-          "metadata"
+          "licensorID",
+          "offerID",
+          "terms",
+          "version",
+          "signature"
         ],
+        "additionalProperties": false,
         "properties": {
+          "licensorID": {
+            "description": "Licensor ID",
+            "comment": "included so clients can determine whether the person auditing licenses is the licensor",
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "offerID": {
+            "description": "Offer ID",
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "terms": {
+            "description": "Public License Terms",
+            "enum": [
+              "parity",
+              "prosperity"
+            ]
+          },
+          "version": {
+            "description": "Public License Version",
+            "type": "string",
+            "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
+          },
           "signature": {
             "description": "Agent's Ed25519 Signature",
             "type": "string",
             "pattern": "^[0-9a-f]{128}$"
-          },
-          "metadata": {
-            "type": "object",
-            "required": [
-              "licensorID",
-              "offerID",
-              "terms",
-              "version"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "licensorID": {
-                "description": "Licensor ID",
-                "comment": "included so clients can determine whether the person auditing licenses is the licensor",
-                "type": "string",
-                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-              },
-              "offerID": {
-                "description": "Offer ID",
-                "type": "string",
-                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-              },
-              "terms": {
-                "description": "Public License Terms",
-                "enum": [
-                  "parity",
-                  "prosperity"
-                ]
-              },
-              "version": {
-                "description": "Public License Version",
-                "type": "string",
-                "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
-              }
-            }
           }
         }
       }
