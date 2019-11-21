@@ -68,7 +68,8 @@
           "type": "object",
           "required": [
             "name",
-            "jurisdiction"
+            "jurisdiction",
+            "licensorID"
           ],
           "additionalProperties": false,
           "properties": {
@@ -79,6 +80,10 @@
             "jurisdiction": {
               "description": "Licensor's Jurisdiction",
               "$ref": "#/definitions/jurisdiction"
+            },
+            "licensorID": {
+              "description": "Licensor ID",
+              "$ref": "#/definitions/uuid"
             }
           }
         },
