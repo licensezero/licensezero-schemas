@@ -1,7 +1,7 @@
 {
   "schema": "https://schemas.licensezero.com/waiver/2.0.0.json",
   "metadata": {
-    "form": "https://forms.licensezero.com/licenses/waiver/3.0.0",
+    "form": "https://forms.licensezero.com/waiver/3.0.0",
     "date": "2019-11-20T04:10:04.31Z",
     "beneficiary": {
       "name": "Example Beneficiary",

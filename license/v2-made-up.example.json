@@ -1,7 +1,7 @@
 {
   "schema": "https://schemas.licensezero.com/license/2.0.0.json",
   "metadata": {
-    "form": "https://forms.licensezero.com/licenses/private/2.0.0",
+    "form": "https://forms.licensezero.com/private/2.0.0",
     "date": "2019-11-20T04:10:04.31Z",
     "licensee": {
       "name": "Example Licensee",

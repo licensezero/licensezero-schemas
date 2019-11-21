@@ -31,7 +31,7 @@
           "description": "Waiver Form URL",
           "type": "string",
           "format": "uri",
-          "pattern": "^(https|http)://"
+          "pattern": "^https://forms.licensezero.com/waiver/[0-9]+\\.[0-9]+\\.[0-9]+"
         },
         "date": {
           "description": "Waiver Effective Date",
