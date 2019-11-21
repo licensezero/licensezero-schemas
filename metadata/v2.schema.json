@@ -3,14 +3,14 @@
   "type": "object",
   "required": [
     "schema",
-    "licensezero"
+    "offers"
   ],
   "properties": {
     "schema": {
       "type": "string",
       "const": "2.0.0"
     },
-    "licensezero": {
+    "offers": {
       "type": "array",
       "items": {
         "description": "License Zero Metadata Record",
