@@ -47,11 +47,6 @@
               }
             ]
           },
-          "version": {
-            "description": "Public License Version",
-            "type": "string",
-            "pattern": "^[0-9]+.[0-9]+.[0-9]+$"
-          },
           "signature": {
             "description": "Agent's Ed25519 Signature",
             "type": "string",
