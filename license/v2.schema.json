@@ -22,6 +22,7 @@
         "signature",
         "url"
       ],
+      "additionalProperties": false,
       "properties": {
         "jurisdiction": {
           "$ref": "#/definitions/jurisdiction"
@@ -51,8 +52,7 @@
         "url": {
           "$ref": "#/definitions/url"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "license": {
       "type": "object",
