@@ -20,9 +20,7 @@ module.exports = {
       ],
       additionalProperties: false,
       properties: {
-        form: {
-          $ref: '#/definitions/url'
-        },
+        form: require('../common/url'),
         text: {
           type: 'string',
           minLength: 1
@@ -42,12 +40,8 @@ module.exports = {
           type: 'string',
           format: 'email'
         },
-        jurisdiction: {
-          $ref: '#/definitions/jurisdiction'
-        },
-        name: {
-          $ref: '#/definitions/name'
-        }
+        jurisdiction: require('../common/jurisdiction'),
+        name: require('../common/name')
       }
     },
     licensor: {
@@ -64,15 +58,9 @@ module.exports = {
           type: 'string',
           format: 'email'
         },
-        id: {
-          $ref: '#/definitions/uuid'
-        },
-        jurisdiction: {
-          $ref: '#/definitions/jurisdiction'
-        },
-        name: {
-          $ref: '#/definitions/name'
-        }
+        id: require('../common/uuid'),
+        jurisdiction: require('../common/jurisdiction'),
+        name: require('../common/name')
       }
     },
     offer: {
@@ -84,16 +72,12 @@ module.exports = {
       ],
       additionalProperties: false,
       properties: {
-        id: {
-          $ref: '#/definitions/uuid'
-        },
+        id: require('../common/uuid'),
         description: {
           type: 'string',
           minLength: 1
         },
-        url: {
-          $ref: '#/definitions/url'
-        }
+        url: require('../common/url')
       }
     },
     order: {
@@ -113,9 +97,7 @@ module.exports = {
           type: 'integer',
           min: 1
         },
-        id: {
-          $ref: '#/definitions/uuid'
-        }
+        id: require('../common/uuid')
       }
     },
     schema: {
@@ -135,57 +117,28 @@ module.exports = {
       ],
       additionalProperties: false,
       properties: {
-        jurisdiction: {
-          $ref: '#/definitions/jurisdiction'
-        },
+        jurisdiction: require('../common/jurisdiction'),
         key: {
           description: 'Ed25519 Public Key',
           type: 'string',
           pattern: '^[0-9a-f]{64}$'
         },
-        name: {
-          $ref: '#/definitions/name'
-        },
+        name: require('../common/name'),
         relationship: {
           oneOf: [
             {
               const: 'licensor'
             },
-            {
-              $ref: '#/definitions/url'
-            }
+            require('../common/url')
           ]
         },
         signature: {
           type: 'string',
           pattern: '^[0-9a-f]{128}$'
         },
-        homepage: {
-          $ref: '#/definitions/url'
-        },
-        api: {
-          $ref: '#/definitions/url'
-        }
+        homepage: require('../common/url'),
+        api: require('../common/url')
       }
-    }
-  },
-  definitions: {
-    jurisdiction: {
-      type: 'string',
-      pattern: '^[A-Z][A-Z]-[A-Z0-9]+$'
-    },
-    name: {
-      type: 'string',
-      minLength: 4
-    },
-    uuid: {
-      type: 'string',
-      pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
-    },
-    url: {
-      type: 'string',
-      format: 'uri',
-      pattern: '^https://'
     }
   }
 }

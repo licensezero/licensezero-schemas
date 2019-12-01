@@ -16,29 +16,18 @@ module.exports = {
         ],
         additionalProperties: false,
         properties: {
-          api: {
-            $ref: '#/definitions/url'
-          },
+          api: require('../common/url'),
           id: {
             type: 'string',
             pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'
           },
-          public: {
-            $ref: '#/definitions/url'
-          }
+          public: require('../common/url')
         }
       }
     },
     schema: {
       type: 'string',
       const: 'https://schemas.licensezero.com/artifact/2.0.0.json'
-    }
-  },
-  definitions: {
-    url: {
-      type: 'string',
-      format: 'uri',
-      pattern: '^https://'
     }
   }
 }
