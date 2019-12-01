@@ -12,7 +12,8 @@ module.exports = {
         type: 'object',
         required: [
           'api',
-          'id'
+          'id',
+          'public'
         ],
         additionalProperties: false,
         properties: {
