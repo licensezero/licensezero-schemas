@@ -2,123 +2,167 @@
   "description": "License Zero Private License",
   "type": "object",
   "required": [
+    "license",
+    "licensee",
+    "licensor",
+    "offer",
+    "order",
     "schema",
-    "metadata",
-    "document",
-    "signature"
+    "seller"
   ],
   "additionalProperties": false,
   "properties": {
-    "schema": {
-      "type": "string",
-      "const": "https://schemas.licensezero.com/license/2.0.0.json"
-    },
-    "metadata": {
+    "license": {
       "type": "object",
       "required": [
         "form",
-        "date",
-        "licensee",
-        "licensor",
-        "contributionID",
-        "url",
-        "description",
-        "price",
-        "orderID"
+        "text"
       ],
       "additionalProperties": false,
       "properties": {
         "form": {
-          "description": "Private License Form URL",
+          "$ref": "#/definitions/url"
+        },
+        "text": {
           "type": "string",
-          "format": "uri",
-          "pattern": "^https://forms.licensezero.com/private/[0-9]+\\.[0-9]+\\.[0-9]+"
-        },
-        "date": {
-          "description": "Private License Effective Date",
+          "minLength": 1
+        }
+      }
+    },
+    "licensee": {
+      "type": "object",
+      "required": [
+        "email",
+        "jurisdiction",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
           "type": "string",
-          "format": "date-time"
+          "format": "email"
         },
-        "licensee": {
-          "description": "Licensee Identification",
-          "type": "object",
-          "required": [
-            "name",
-            "jurisdiction",
-            "email"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "description": "Licensee's Name",
-              "$ref": "#/definitions/name"
-            },
-            "jurisdiction": {
-              "description": "Licensee's Jurisdiction",
-              "$ref": "#/definitions/jurisdiction"
-            },
-            "email": {
-              "description": "Licensee's E-Mail Address",
-              "type": "string",
-              "format": "email"
-            }
-          }
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
         },
-        "licensor": {
-          "type": "object",
-          "required": [
-            "name",
-            "jurisdiction",
-            "licensorID"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "description": "Licensor's Name",
-              "$ref": "#/definitions/name"
-            },
-            "jurisdiction": {
-              "description": "Licensor's Jurisdiction",
-              "$ref": "#/definitions/jurisdiction"
-            },
-            "licensorID": {
-              "description": "Licensor ID",
-              "$ref": "#/definitions/uuid"
-            }
-          }
+        "name": {
+          "$ref": "#/definitions/name"
+        }
+      }
+    },
+    "licensor": {
+      "type": "object",
+      "required": [
+        "email",
+        "id",
+        "jurisdiction",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
         },
-        "contributionID": {
-          "description": "Contribution ID",
+        "id": {
           "$ref": "#/definitions/uuid"
         },
-        "url": {
-          "description": "Project URL",
-          "$ref": "#/definitions/url"
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "required": [
+        "description",
+        "id",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
         },
         "description": {
           "type": "string",
           "minLength": 1
         },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      }
+    },
+    "order": {
+      "type": "object",
+      "required": [
+        "date",
+        "id",
+        "price"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
         "price": {
-          "description": "Private License Price in United States cents",
           "type": "integer",
           "min": 1
         },
-        "orderID": {
-          "description": "Private License Order ID",
+        "id": {
           "$ref": "#/definitions/uuid"
         }
       }
     },
-    "document": {
-      "description": "License Text",
+    "schema": {
       "type": "string",
-      "minLength": 1
+      "const": "https://schemas.licensezero.com/license/2.0.0.json"
     },
-    "signature": {
-      "description": "Agent's Ed25519 Signature",
-      "type": "string",
-      "pattern": "^[0-9a-f]{128}$"
+    "seller": {
+      "type": "object",
+      "required": [
+        "api",
+        "jurisdiction",
+        "key",
+        "name",
+        "relationship",
+        "signature"
+      ],
+      "properties": {
+        "api": {
+          "$ref": "#/definitions/url"
+        },
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "key": {
+          "description": "Ed25519 Public Key",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        },
+        "relationship": {
+          "oneOf": [
+            {
+              "const": "licensor"
+            },
+            {
+              "$ref": "#/definitions/url"
+            }
+          ]
+        },
+        "signature": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{128}$"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "definitions": {

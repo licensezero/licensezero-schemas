@@ -1,24 +1,36 @@
 {
-  "schema": "https://schemas.licensezero.com/license/2.0.0.json",
-  "metadata": {
+  "license": {
     "form": "https://forms.licensezero.com/private/2.0.0",
-    "date": "2019-11-20T04:10:04.31Z",
-    "licensee": {
-      "name": "Example Licensee",
-      "jurisdiction": "UC-CA",
-      "email": "licensee@example.com"
-    },
-    "licensor": {
-      "name": "Example Licensor",
-      "jurisdiction": "UC-CA",
-      "licensorID": "04a7feca-dae5-4456-949d-2fd242e78574"
-    },
-    "orderID": "6e91844b-70f8-4196-a6f0-22a4c11183e5",
-    "price": 5000,
-    "contributionID": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
-    "url": "http://example.com",
-    "description": "example project"
+    "text": "License text here!"
   },
-  "document": "# License Zero Private License 7.0.0\n\n<https://licensezero.com/licenses/private>\n\n## Date\n\n2019-11-12T16:39:58.824Z (ISO 8601)\n\n## Licensor\n\nName: Example Licensor\n\nJurisdiction: US-CA (ISO 3166-2)\n\n## Agent\n\nName: Artless Devices LLC\n\nJurisdiction: US-CA (ISO 3166-2)\n\nWebsite: https://licensezero.com\n\n## Licensee\n\nName: Example Licensee\n\nJurisdiction: US-CA (ISO 3166-2)\n\nE-Mail: licensee@example.com\n\n## Project\n\nRepository: \n\nDescription: \n\n## Contributions\n\nIdentifier: \n\n## Background\n\nI have made contributions to the project and granted a\npublic license for them.  My public license has rules\nthat either limit use for commercial purposes or require\nrelease of source code for software built with my work.\n\nThis is a separate, private license for my contributions\nto the project, with different rules.  Unlike my public\nlicense, this private license lets you use my contributions\nto the project for commercial purposes and build software\nnot released as open source.  However, this private license\napplies only to you, and in a limited way to those you're\nallowed to sublicense.\n\n## No Liability\n\n***As far as the law allows, my contributions to the\nproject come as is, without any warranty or condition,\nand I will not be liable to anyone for any damages related\nto the project or this license, under any kind of legal\nclaim.***\n\n## Scope\n\nThis private license covers contributions I have made\nto the project with the identifier in metadata, and any\ncontributions I make to the project in the future without\nchanging the identifier or adding a new one.  This private\nlicense does not cover contributions I make to the project\nin the future with a different or additional identifier.\n\n## Copyright License\n\nI license you to do everything with my contributions to the\nproject that would otherwise infringe my copyright in them.\n\n## Notices\n\nYou must ensure that everyone who gets a copy of any of\nmy contributions to the project from you, with or without\nchanges, also gets the texts of the public licenses for\nthose contributions.\n\n## Patent License\n\nI license you to do everything with the project that\nwould otherwise infringe any patent claims I can license\nor become able to license.\n\n## Sublicensing\n\nIf you combine my contributions to the project with other\nsoftware in a larger application, you may sublicense\nmy contributions to the project as part of your larger\napplication, and allow further sublicensing in turn,\nunder these rules:\n\n1. Your larger application must have significant\n   additional content or functionality beyond that of\n   the project, and end users must license your larger\n   application primarily for that added content or\n   functionality.\n\n2. You may not sublicense anyone to break any rule of\n   the public license for my contributions to the project\n   for any changes of their own or any software besides\n   your larger application.\n\n3. No Liability, Defensive Termination, Sublicensing,\n   and Redistribution must apply to each sublicense.\n\nYou may build, and sublicense for, as many larger\napplications as you like.\n",
-  "signature": "18d103b00c833606087e8fe1111594c38494b464e29d1be6ae69555d8b8847bd9f44a3caf43c903419dc1e4a580b5fbea8f3ed5dada0b1e3682f018c7dca860b"
+  "licensee": {
+    "email": "licensee@example.com",
+    "jurisdiction": "UC-NY",
+    "name": "Example Licensee"
+  },
+  "licensor": {
+    "email": "licensor@example.com",
+    "id": "04a7feca-dae5-4456-949d-2fd242e78574",
+    "jurisdiction": "UC-TX",
+    "name": "Example Licensor"
+  },
+  "offer": {
+    "description": "example project",
+    "id": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
+    "url": "http://example.com"
+  },
+  "order": {
+    "date": "2019-11-20T04:10:04.31Z",
+    "id": "6e91844b-70f8-4196-a6f0-22a4c11183e5",
+    "price": 5000
+  },
+  "schema": "https://schemas.licensezero.com/license/2.0.0.json",
+  "seller": {
+    "api": "https://api.licensezero.com",
+    "jurisdiction": "US-CA",
+    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "name": "Artless Devices LLC",
+    "relationship": "https://licensezero.com/terms/agency",
+    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
 }
