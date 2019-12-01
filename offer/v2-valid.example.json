@@ -1,0 +1,9 @@
+{
+  "description": "test offer",
+  "id": "8c9b1b60-2bb3-4c5e-a6e7-5b0a9e582bfc",
+  "licensor": "6e2bafb8-c896-4516-ad3d-3590b464aa2a",
+  "pricing": {
+    "private": 5000
+  },
+  "url": "http://example.com"
+}
