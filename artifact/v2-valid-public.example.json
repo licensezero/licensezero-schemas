@@ -2,8 +2,8 @@
   "schema": "https://schemas.licensezero.com/artifact/2.0.0.json",
   "offers": [
     {
-      "id": "75b44bc1-b234-44bf-82c0-daeaaacb1922",
-      "vendor": "https://licensezero.com"
+      "api": "https://licensezero.com",
+      "id": "75b44bc1-b234-44bf-82c0-daeaaacb1922"
     }
   ]
 }

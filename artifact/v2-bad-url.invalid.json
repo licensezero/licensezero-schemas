@@ -2,9 +2,9 @@
   "schema": "https://schemas.licensezero.com/artifact/2.0.0.json",
   "offers": [
     {
+      "api": "invalid",
       "id": "75b44bc1-b234-44bf-82c0-daeaaacb1922",
-      "public": "invalid",
-      "vendor": "invalid"
+      "public": "invalid"
     }
   ]
 }

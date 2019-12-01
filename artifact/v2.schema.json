@@ -11,12 +11,12 @@
       "items": {
         "type": "object",
         "required": [
-          "vendor",
+          "api",
           "id"
         ],
         "additionalProperties": false,
         "properties": {
-          "vendor": {
+          "api": {
             "$ref": "#/definitions/url"
           },
           "id": {
