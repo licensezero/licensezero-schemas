@@ -1,23 +1,37 @@
 {
-  "schema": "https://schemas.licensezero.com/waiver/2.0.0.json",
-  "metadata": {
-    "form": "https://forms.licensezero.com/waiver/3.0.0",
-    "date": "2019-11-20T04:10:04.31Z",
-    "beneficiary": {
-      "name": "Example Beneficiary",
-      "jurisdiction": "UC-CA",
-      "email": "beneficiary@example.com"
-    },
-    "licensor": {
-      "name": "Example Licensor",
-      "jurisdiction": "UC-CA",
-      "licensorID": "04a7feca-dae5-4456-949d-2fd242e78574"
-    },
-    "contributionID": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
-    "url": "http://example.com",
-    "description": "example project",
-    "term": "forever"
+  "api": {
+    "url": "https://api.licensezero.com",
+    "jurisdiction": "US-CA",
+    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "name": "Artless Devices LLC",
+    "relationship": "https://licensezero.com/terms/agency",
+    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   },
-  "document": "...",
-  "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  "beneficiary": {
+    "email": "licensee@example.com",
+    "jurisdiction": "UC-NY",
+    "name": "Example Licensee"
+  },
+  "licensor": {
+    "email": "licensor@example.com",
+    "id": "04a7feca-dae5-4456-949d-2fd242e78574",
+    "jurisdiction": "UC-TX",
+    "name": "Example Licensor"
+  },
+  "offer": {
+    "description": "example project",
+    "id": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
+    "url": "http://example.com"
+  },
+  "order": {
+    "id": "6e91844b-70f8-4196-a6f0-22a4c11183e5",
+    "price": 5000
+  },
+  "schema": "https://schemas.licensezero.com/waiver/2.0.0.json",
+  "waiver": {
+    "date": "2019-11-20T04:10:04.31Z",
+    "form": "https://forms.licensezero.com/waiver/2.0.0",
+    "term": "forever",
+    "text": "License text here!"
+  }
 }

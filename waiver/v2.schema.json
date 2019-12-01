@@ -1,42 +1,162 @@
 {
-  "description": "License Zero Waiver",
   "type": "object",
   "required": [
+    "api",
+    "beneficiary",
+    "licensor",
+    "offer",
+    "order",
     "schema",
-    "metadata",
-    "document",
-    "signature"
+    "waiver"
   ],
   "additionalProperties": false,
   "properties": {
+    "beneficiary": {
+      "type": "object",
+      "required": [
+        "email",
+        "jurisdiction",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        }
+      }
+    },
+    "licensor": {
+      "type": "object",
+      "required": [
+        "email",
+        "id",
+        "jurisdiction",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        }
+      }
+    },
+    "offer": {
+      "type": "object",
+      "required": [
+        "description",
+        "id",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      }
+    },
+    "order": {
+      "type": "object",
+      "required": [
+        "id",
+        "price"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "price": {
+          "type": "integer",
+          "min": 1
+        },
+        "id": {
+          "$ref": "#/definitions/uuid"
+        }
+      }
+    },
     "schema": {
       "type": "string",
       "const": "https://schemas.licensezero.com/waiver/2.0.0.json"
     },
-    "metadata": {
+    "api": {
       "type": "object",
       "required": [
-        "form",
+        "jurisdiction",
+        "key",
+        "name",
+        "relationship",
+        "signature",
+        "url"
+      ],
+      "properties": {
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "key": {
+          "description": "Ed25519 Public Key",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        },
+        "relationship": {
+          "oneOf": [
+            {
+              "const": "licensor"
+            },
+            {
+              "$ref": "#/definitions/url"
+            }
+          ]
+        },
+        "signature": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{128}$"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "additionalProperties": false
+    },
+    "waiver": {
+      "type": "object",
+      "required": [
         "date",
+        "form",
         "term",
-        "beneficiary",
-        "licensor",
-        "contributionID",
-        "url",
-        "description"
+        "text"
       ],
       "additionalProperties": false,
       "properties": {
-        "form": {
-          "description": "Waiver Form URL",
-          "type": "string",
-          "format": "uri",
-          "pattern": "^https://forms.licensezero.com/waiver/[0-9]+\\.[0-9]+\\.[0-9]+"
-        },
         "date": {
-          "description": "Waiver Effective Date",
           "type": "string",
           "format": "date-time"
+        },
+        "form": {
+          "$ref": "#/definitions/url"
         },
         "term": {
           "oneOf": [
@@ -50,77 +170,11 @@
             }
           ]
         },
-        "beneficiary": {
-          "description": "Beneficiary Identification",
-          "type": "object",
-          "required": [
-            "name",
-            "jurisdiction",
-            "email"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "description": "Beneficiary's Name",
-              "$ref": "#/definitions/name"
-            },
-            "jurisdiction": {
-              "description": "Beneficiary's Jurisdiction",
-              "$ref": "#/definitions/jurisdiction"
-            },
-            "email": {
-              "description": "Beneficiary's E-Mail Address",
-              "type": "string",
-              "format": "email"
-            }
-          }
-        },
-        "licensor": {
-          "type": "object",
-          "required": [
-            "name",
-            "jurisdiction",
-            "licensorID"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "description": "Licensor's Name",
-              "$ref": "#/definitions/name"
-            },
-            "jurisdiction": {
-              "description": "Licensor's Jurisdiction",
-              "$ref": "#/definitions/jurisdiction"
-            },
-            "licensorID": {
-              "description": "Licensor ID",
-              "$ref": "#/definitions/uuid"
-            }
-          }
-        },
-        "contributionID": {
-          "description": "Contribution ID",
-          "$ref": "#/definitions/uuid"
-        },
-        "url": {
-          "description": "Project URL",
-          "$ref": "#/definitions/url"
-        },
-        "description": {
+        "text": {
           "type": "string",
           "minLength": 1
         }
       }
-    },
-    "document": {
-      "description": "License Text",
-      "type": "string",
-      "minLength": 1
-    },
-    "signature": {
-      "description": "Agent's Ed25519 Signature",
-      "type": "string",
-      "pattern": "^[0-9a-f]{128}$"
     }
   },
   "definitions": {
