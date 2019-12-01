@@ -1,4 +1,4 @@
-{
+module.exports = {
   "description": "License Zero Private License",
   "type": "object",
   "required": [

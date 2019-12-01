@@ -4,7 +4,7 @@ var tape = require('tape')
 var ajv = require('ajv')()
 
 tape('schemas', function (suite) {
-  glob.sync('**/*.schema.json').forEach(function (file) {
+  glob.sync('**/*.schema.js').forEach(function (file) {
     suite.test(file, function (test) {
       var schema = require(path.resolve(file))
       ajv.validateSchema(schema)
@@ -20,7 +20,7 @@ tape('examples', function (suite) {
       var dirname = path.dirname(file)
       var basename = path.basename(file, '.example.json')
       var split = basename.split('-')
-      var schemaFile = path.join(dirname, split[0] + '.schema.json')
+      var schemaFile = path.join(dirname, split[0] + '.schema.js')
       var schema = require(path.resolve(schemaFile))
       var data = require(path.resolve(file))
       test.doesNotThrow(function () {
@@ -36,7 +36,7 @@ tape('examples', function (suite) {
       var dirname = path.dirname(file)
       var basename = path.basename(file, '.example.json')
       var split = basename.split('-')
-      var schemaFile = path.join(dirname, split[0] + '.schema.json')
+      var schemaFile = path.join(dirname, split[0] + '.schema.js')
       var schema = require(path.resolve(schemaFile))
       var data = require(path.resolve(file))
       test.doesNotThrow(function () {

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "description": "License Zero Artifact Metadata",
   "type": "object",
   "required": [

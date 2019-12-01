@@ -1,5 +1,5 @@
-{
-  "description": "License Zero Waiver",
+module.exports = {
+  "description": "License Zero Private License",
   "type": "object",
   "required": [
     "manifest",
