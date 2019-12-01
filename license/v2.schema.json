@@ -185,7 +185,7 @@
     "url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https?://"
+      "pattern": "^(http|https)://"
     }
   }
 }
