@@ -8,7 +8,7 @@
     "offer",
     "order",
     "schema",
-    "seller"
+    "api"
   ],
   "additionalProperties": false,
   "properties": {
@@ -122,20 +122,17 @@
       "type": "string",
       "const": "https://schemas.licensezero.com/license/2.0.0.json"
     },
-    "seller": {
+    "api": {
       "type": "object",
       "required": [
-        "api",
         "jurisdiction",
         "key",
         "name",
         "relationship",
-        "signature"
+        "signature",
+        "url"
       ],
       "properties": {
-        "api": {
-          "$ref": "#/definitions/url"
-        },
         "jurisdiction": {
           "$ref": "#/definitions/jurisdiction"
         },
@@ -160,6 +157,9 @@
         "signature": {
           "type": "string",
           "pattern": "^[0-9a-f]{128}$"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
         }
       },
       "additionalProperties": false

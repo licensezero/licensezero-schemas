@@ -1,4 +1,12 @@
 {
+  "api": {
+    "url": "https://api.licensezero.com",
+    "jurisdiction": "US-CA",
+    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "name": "Artless Devices LLC",
+    "relationship": "https://licensezero.com/terms/agency",
+    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
   "license": {
     "form": "https://forms.licensezero.com/private/2.0.0",
     "text": "License text here!"
@@ -24,13 +32,5 @@
     "id": "6e91844b-70f8-4196-a6f0-22a4c11183e5",
     "price": 5000
   },
-  "schema": "https://schemas.licensezero.com/license/2.0.0.json",
-  "seller": {
-    "api": "https://api.licensezero.com",
-    "jurisdiction": "US-CA",
-    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "name": "Artless Devices LLC",
-    "relationship": "https://licensezero.com/terms/agency",
-    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-  }
+  "schema": "https://schemas.licensezero.com/license/2.0.0.json"
 }
