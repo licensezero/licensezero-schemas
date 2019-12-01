@@ -1,12 +1,4 @@
 {
-  "api": {
-    "url": "https://api.licensezero.com",
-    "jurisdiction": "US-CA",
-    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "name": "Artless Devices LLC",
-    "relationship": "https://licensezero.com/terms/agency",
-    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-  },
   "beneficiary": {
     "email": "licensee@example.com",
     "jurisdiction": "UC-NY",
@@ -33,5 +25,14 @@
     "form": "https://forms.licensezero.com/waiver/2.0.0",
     "term": "forever",
     "text": "License text here!"
+  },
+  "vendor": {
+    "api": "https://api.licensezero.com",
+    "homepage": "https://licensezero.com",
+    "jurisdiction": "US-CA",
+    "key": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "name": "Artless Devices LLC",
+    "relationship": "https://licensezero.com/terms/agency",
+    "signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   }
 }

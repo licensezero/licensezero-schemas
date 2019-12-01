@@ -2,58 +2,16 @@
   "description": "License Zero Private License",
   "type": "object",
   "required": [
-    "api",
     "license",
     "licensee",
     "licensor",
     "offer",
     "order",
-    "schema"
+    "schema",
+    "vendor"
   ],
   "additionalProperties": false,
   "properties": {
-    "api": {
-      "type": "object",
-      "required": [
-        "jurisdiction",
-        "key",
-        "name",
-        "relationship",
-        "signature",
-        "url"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "jurisdiction": {
-          "$ref": "#/definitions/jurisdiction"
-        },
-        "key": {
-          "description": "Ed25519 Public Key",
-          "type": "string",
-          "pattern": "^[0-9a-f]{64}$"
-        },
-        "name": {
-          "$ref": "#/definitions/name"
-        },
-        "relationship": {
-          "oneOf": [
-            {
-              "const": "licensor"
-            },
-            {
-              "$ref": "#/definitions/url"
-            }
-          ]
-        },
-        "signature": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{128}$"
-        },
-        "url": {
-          "$ref": "#/definitions/url"
-        }
-      }
-    },
     "license": {
       "type": "object",
       "required": [
@@ -163,6 +121,52 @@
     "schema": {
       "type": "string",
       "const": "https://schemas.licensezero.com/license/2.0.0.json"
+    },
+    "vendor": {
+      "type": "object",
+      "required": [
+        "jurisdiction",
+        "key",
+        "name",
+        "relationship",
+        "signature",
+        "homepage",
+        "api"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "jurisdiction": {
+          "$ref": "#/definitions/jurisdiction"
+        },
+        "key": {
+          "description": "Ed25519 Public Key",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "name": {
+          "$ref": "#/definitions/name"
+        },
+        "relationship": {
+          "oneOf": [
+            {
+              "const": "licensor"
+            },
+            {
+              "$ref": "#/definitions/url"
+            }
+          ]
+        },
+        "signature": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{128}$"
+        },
+        "homepage": {
+          "$ref": "#/definitions/url"
+        },
+        "api": {
+          "$ref": "#/definitions/url"
+        }
+      }
     }
   },
   "definitions": {
@@ -181,7 +185,7 @@
     "url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^(https|http)://"
+      "pattern": "^https?://"
     }
   }
 }

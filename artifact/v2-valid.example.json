@@ -3,8 +3,8 @@
   "offers": [
     {
       "id": "75b44bc1-b234-44bf-82c0-daeaaacb1922",
-      "public": "invalid",
-      "vendor": "invalid"
+      "public": "https://paritylicense.com/versions/7.0.0",
+      "vendor": "https://licensezero.com"
     }
   ]
 }

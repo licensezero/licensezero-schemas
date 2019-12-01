@@ -1,59 +1,44 @@
 {
-  "description": "License Zero Package Metadata",
+  "description": "License Zero Artifact Metadata",
   "type": "object",
   "required": [
-    "schema",
-    "contributions"
+    "offers",
+    "schema"
   ],
   "properties": {
-    "schema": {
-      "type": "string",
-      "const": "https://schemas.licensezero.com/package/2.0.0.json"
-    },
-    "contributions": {
+    "offers": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
-          "licensorID",
-          "contributionID",
-          "publicLicense",
-          "signature"
+          "vendor",
+          "id"
         ],
         "additionalProperties": false,
         "properties": {
-          "licensorID": {
-            "description": "Licensor ID",
-            "comment": "enables clients to determine whether the person auditing licenses is the licensor",
+          "vendor": {
+            "$ref": "#/definitions/url"
+          },
+          "id": {
             "type": "string",
             "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
           },
-          "contributionID": {
-            "description": "Contribution ID",
-            "comment": "enables clients to order private licenses",
-            "type": "string",
-            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-          },
-          "publicLicense": {
-            "description": "Public License Terms",
-            "oneOf": [
-              {
-                "type": "string",
-                "pattern": "^https://paritylicense.com/versions/[0-9]+\\.[0-9]+\\.[0-9]+"
-              },
-              {
-                "type": "string",
-                "pattern": "^https://prosperitylicense.com/versions/[0-9]+\\.[0-9]+\\.[0-9]+"
-              }
-            ]
-          },
-          "signature": {
-            "description": "Agent's Ed25519 Signature",
-            "type": "string",
-            "pattern": "^[0-9a-f]{128}$"
+          "public": {
+            "$ref": "#/definitions/url"
           }
         }
       }
+    },
+    "schema": {
+      "type": "string",
+      "const": "https://schemas.licensezero.com/artifact/2.0.0.json"
+    }
+  },
+  "definitions": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^(http|https)://"
     }
   }
 }
