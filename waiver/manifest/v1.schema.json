@@ -90,7 +90,7 @@
           "description": "Project Homepage",
           "type": "string",
           "format": "uri",
-          "pattern": "^(http|https)://"
+          "pattern": "^https://"
         },
         "description": {
           "type": "string",

@@ -26,7 +26,7 @@
   "offer": {
     "description": "example project",
     "id": "eeb90bd2-7e87-49a7-8ba8-ff695c700501",
-    "url": "http://example.com"
+    "url": "https://example.com"
   },
   "order": {
     "date": "2019-11-20T04:10:04.31Z",

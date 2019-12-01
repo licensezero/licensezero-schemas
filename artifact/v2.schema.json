@@ -38,7 +38,7 @@
     "url": {
       "type": "string",
       "format": "uri",
-      "pattern": "^(http|https)://"
+      "pattern": "^https://"
     }
   }
 }
