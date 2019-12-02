@@ -1,0 +1,9 @@
+{
+  "description": "test offer",
+  "id": "invalid",
+  "licensor": "invalid",
+  "pricing": {
+    "private": 5000
+  },
+  "url": "https://example.com"
+}
